@@ -1,0 +1,17 @@
+package com.bonillaDario.proyectoSecurizar.repository;
+
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.bonillaDario.proyectoSecurizar.models.Usuario;
+
+@Repository
+public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
+    // Para el futuro login y seguridad
+    Optional<Usuario> findByEmail(String email);
+    
+    // Cumplimos el requisito de "consultar por nombre"
+    Optional<Usuario> findByUsername(String username);
+}
