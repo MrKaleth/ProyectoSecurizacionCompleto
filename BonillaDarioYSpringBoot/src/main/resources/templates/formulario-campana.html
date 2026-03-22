@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <h2>Crear Nueva Campaña</h2>
+    <form th:action="@{/campanas/guardar}" th:object="${campana}" method="post">
+        <label>Nombre:</label>
+        <input type="text" th:field="*{nombre}" required />
+        <br/>
+        <label>Descripción:</label>
+        <textarea th:field="*{descripcion}"></textarea>
+        <br/>
+        <button type="submit">Guardar Campaña</button>
+    </form>
+    <a href="/campanas/lista">Cancelar</a>
+</body>
+</html>

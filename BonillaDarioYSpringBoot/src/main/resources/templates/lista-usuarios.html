@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+    <h2>Usuarios de EpicVault</h2>
+    <a href="/usuarios/nuevo">Registrar Nuevo Usuario</a>
+    <table border="1">
+        <thead>
+            <tr><th>Username</th><th>Email</th></tr>
+        </thead>
+        <tbody>
+            <tr th:each="u : ${listaUsuarios}">
+                <td th:text="${u.username}"></td>
+                <td th:text="${u.email}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <a href="/">Volver al Inicio</a>
+</body>
+</html>

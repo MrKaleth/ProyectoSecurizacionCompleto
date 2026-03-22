@@ -1,0 +1,40 @@
+package com.bonillaDario.proyectoSecurizar.service;
+
+import com.bonillaDario.proyectoSecurizar.models.Campaña;
+import com.bonillaDario.proyectoSecurizar.repositories.CampañaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import java.util.List;
+import java.util.Optional;
+
+@Service
+public class CampañaService {
+
+    @Autowired
+    private CampañaRepository campañaRepository;
+
+    // Alta de entidad
+    public Campaña guardar(Campaña campaña) {
+        return campañaRepository.save(campaña);
+    }
+
+    // Listado de todas las entidades
+    public List<Campaña> listarTodas() {
+        return campañaRepository.findAll();
+    }
+
+    // Consultar por ID
+    public Optional<Campaña> buscarPorId(Long id) {
+        return campañaRepository.findById(id);
+    }
+
+    // Filtrar por nombre (Requisito: Filtrar por uno de sus atributos)
+    public List<Campaña> filtrarPorNombre(String nombre) {
+        return campañaRepository.findByNombreContainingIgnoreCase(nombre);
+    }
+
+    // Eliminar
+    public void eliminar(Long id) {
+        campañaRepository.deleteById(id);
+    }
+}

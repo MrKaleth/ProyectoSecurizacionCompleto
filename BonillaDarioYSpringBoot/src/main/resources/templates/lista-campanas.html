@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>EpicVault - Campañas</title>
+</head>
+<body>
+    <h1>Mis Campañas de Rol</h1>
+    <a href="/campanas/nuevo">Crear Nueva Campaña</a>
+    <hr>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Descripción</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="c : ${listaCampanas}">
+                <td th:text="${c.id}"></td>
+                <td th:text="${c.nombre}"></td>
+                <td th:text="${c.descripcion}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>

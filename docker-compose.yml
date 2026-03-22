@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  mysql-db:
+    image: mysql:8.0
+    container_name: mi_mysql_proyecto
+    environment:
+      # Contraseña para el usuario 'root' de MySQL
+      MYSQL_ROOT_PASSWORD: ShutUpMeg0#?
+    ports:
+      # Mapea el puerto 3307 de tu PC al 3306 del contenedor
+      - "3307:3306"
+    volumes:
+      # Conecta tu carpeta local con la carpeta de inicialización del contenedor
+      - ./scripts_sql:/docker-entrypoint-initdb.d/
+      # (Opcional) Guarda los datos físicamente para no perderlos si borras el contenedor
+      - mysql_data:/var/lib/mysql
+    restart: always
+
+volumes:
+  mysql_data:

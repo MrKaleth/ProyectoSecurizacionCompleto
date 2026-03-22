@@ -1,0 +1,5 @@
+package com.bonillaDario.proyectoSecurizar.repository;
+
+public class CampañaRepository {
+
+}
